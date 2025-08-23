@@ -82,7 +82,7 @@ chmod 777 ~/Applications/\*
 
 sudo nano /etc/default/grub
 
-GRUB\_CMDLINE\_LINUX\_DEFAULT="quiet console=tty3 loglevel=0 fsck.mode=skip vt.global\_cursor\_default=0"
+GRUB\_CMDLINE\_LINUX\_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global\_cursor\_default=0"
 
 
 
