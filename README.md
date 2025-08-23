@@ -1,7 +1,5 @@
 sudo sed -i -e '$a\\arcade ALL=(ALL) NOPASSWD:ALL' /etc/sudoers
 
-
-
 sudo apt update -y \&\& sudo apt upgrade -y
 
 
