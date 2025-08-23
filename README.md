@@ -15,7 +15,6 @@ sudo ubuntu-drivers install
 sudo nano /etc/samba/smb.conf
 
 *\[Home]*
-
 *path = /home/arcade*
 
 *public = yes*
