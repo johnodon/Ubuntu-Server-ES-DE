@@ -62,6 +62,12 @@ mkdir ~/Applications
 
 
 
+wget https://gitlab.com/es-de/emulationstation-de/-/package\_files/210210324/download -O ~/Applications/ES-DE\_x64.AppImage
+
+wget https://buildbot.libretro.com/stable/1.21.0/linux/x86\_64/RetroArch.7z -O ~/Applications/RetroArch.7z
+
+
+
 copy ES-DE and RA appimages
 
 copy RA .config folder to ~
@@ -81,6 +87,14 @@ GRUB\_CMDLINE\_LINUX\_DEFAULT="quiet console=tty3 loglevel=0 fsck.mode=skip vt.g
 
 
 sudo update-grub
+
+
+
+sudo rm /etc/issue
+
+
+
+touch ~/.hushlogin
 
 
 
