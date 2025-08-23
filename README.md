@@ -102,6 +102,28 @@ sudo systemctl disable getty@tty1.service --now
 
 
 
+sudo apt-get purge cloud-init -y
+
+
+
+sudo rm -rf /etc/cloud/ /var/lib/cloud/
+
+
+
+git clone https://github.com/johnodon/Transparent\_Cursor\_Theme.git
+
+sudo cp -R /home/pi/Transparent\_Cursor\_Theme/Transparent /usr/share/icons
+
+sudo nano /usr/share/icons/default/index.theme
+
+\[Icon Theme]
+
+Inherits=Transparent
+
+
+
+
+
 sudo nano /etc/lightdm/lightdm.conf
 
 \[SeatDefaults]
