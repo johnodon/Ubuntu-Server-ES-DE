@@ -12,21 +12,21 @@ sudo ubuntu-drivers install
 
 sudo nano /etc/samba/smb.conf
 
-[Home]
+\[Home]
 
-*path = /home/arcade*
+path = /home/arcade
 
-*public = yes*
+public = yes
 
-*guest only = yes*
+guest only = yes
 
-*writable = yes*
+writable = yes
 
-*browseable = yes*
+browseable = yes
 
-*force user = arcade*
+force user = arcade
 
-*inherit permissions = yes*
+inherit permissions = yes
 
 
 
@@ -38,15 +38,19 @@ mkdir -p ~/.config/openbox
 
 nano ~/.config/openbox/AutoStart
 
-*# Suppress screensaver start attempts and autoblanking*
+\# Suppress screensaver start attempts and autoblanking
 
-*xset -dpms \&*
+xset -dpms \&
 
-*xset s off \&*
+xset s off \&
 
-*#Start ES-DE*
+\# Set resolution and refresh rate
 
-*~/Applications/ES-DE\*.AppImage \&*
+xrandr -d :0 -s 1920x1080 -r 60 \&
+
+\#Start ES-DE
+
+~/Applications/ES-DE\*.AppImage \&
 
 
 
@@ -72,7 +76,7 @@ chmod 777 ~/Applications/\*
 
 sudo nano /etc/default/grub
 
-*GRUB\_CMDLINE\_LINUX\_DEFAULT="quiet console=tty3 loglevel=2 fsck.mode=skip vt.global\_cursor\_default=0"*
+GRUB\_CMDLINE\_LINUX\_DEFAULT="quiet console=tty3 loglevel=0 fsck.mode=skip vt.global\_cursor\_default=0"
 
 
 
@@ -86,13 +90,11 @@ sudo systemctl disable getty@tty1.service --now
 
 sudo nano /etc/lightdm/lightdm.conf
 
-*\[SeatDefaults]*
+\[SeatDefaults]
 
-*autologin-user=arcade*
+autologin-user=arcade
 
-*autologin-user-timeout=0*
+autologin-user-timeout=0
 
-*user-session=openbox*
-
-
+user-session=openbox
 
