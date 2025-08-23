@@ -14,7 +14,7 @@ sudo ubuntu-drivers install
 
 sudo nano /etc/samba/smb.conf
 
-[Home]
+<!-- [Home]
 
 path = /home/arcade
 
@@ -28,7 +28,7 @@ path = /home/arcade
 
 *force user = arcade*
 
-*inherit permissions = yes*
+*inherit permissions = yes* -->
 
 
 
