@@ -36,7 +36,7 @@ sudo service smbd restart
 
 mkdir -p ~/.config/openbox
 
-nano ~/.config/openbox/AutoStart
+nano ~/.config/openbox/autostart
 
 \# Suppress screensaver start attempts and autoblanking
 
