@@ -40,7 +40,7 @@ sudo update-grub
 sudo usermod -a -G input arcade
 sudo usermod -a -G audio arcade
 sudo usermod -a -G video arcade
-
+chown -R arcade:arcade ~
 
 sudo rm /etc/issue
 touch ~/.hushlogin
