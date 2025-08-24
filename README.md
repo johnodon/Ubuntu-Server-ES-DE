@@ -135,3 +135,6 @@ autologin-user-timeout=0
 user-session=openbox
 
 
+
+Set HDMI to fallback in volume mixer (Openbox - pavucontrol)
+
