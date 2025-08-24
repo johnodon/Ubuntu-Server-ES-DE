@@ -2,7 +2,7 @@ sudo sed -i -e '$a\\arcade ALL=(ALL) NOPASSWD:ALL' /etc/sudoers
 
 sudo apt update -y \&\& sudo apt upgrade -y
 
-sudo apt install xorg openbox obconf lxterminal yad screen lxappearance xterm nemo nano lxpolkit firefox rofi lightdm libfuse2 alsa-utils samba git dialog unzip xmlstarlet mpv dos2unix mc build-essential libsdl2-dev libsdl2-gfx-dev libsdl2-ttf-dev libvorbis-dev libsdl2-image-dev autotools-dev scrot jstest-gtk --no-install-recommends -y
+sudo apt install xorg openbox obconf lxterminal yad screen lxappearance xterm nemo nano lxpolkit firefox rofi lightdm libfuse2 alsa-utils samba git dialog alsautils unzip xmlstarlet mpv dos2unix mc build-essential libsdl2-dev libsdl2-gfx-dev libsdl2-ttf-dev libvorbis-dev libsdl2-image-dev autotools-dev scrot jstest-gtk --no-install-recommends -y
 
 
 
