@@ -134,7 +134,7 @@ autologin-user-timeout=0
 
 user-session=openbox
 
-sudo nano /etc/asound.conf
+sudo nano /etc/.asound.conf
 
 ctl.!default {
         type hw
