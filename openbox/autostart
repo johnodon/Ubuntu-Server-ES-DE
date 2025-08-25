@@ -1,0 +1,7 @@
+# Suppress screensaver start attempts and autoblanking
+xset -dpms &
+xset s off &
+# Set resolution and refresh rate
+xrandr -d :0 -s 1920x1080 -r 60 &
+#Start ES-DE
+~/Applications/ES-DE*.AppImage &
