@@ -14,7 +14,10 @@ force user = arcade
 inherit permissions = yes
 
 sudo service smbd restart
-mkdir -p ~/.config/openbox
+
+git clone --depth=1 https://github.com/johnodon/Ubuntu-Server-ES-DE.git
+mv -R ~/Ubuntu-Server-ES-DE/openbox ~/.config
+
 nano ~/.config/openbox/autostart
 # Suppress screensaver start attempts and autoblanking
 xset -dpms &
@@ -24,6 +27,7 @@ xrandr -d :0 -s 1920x1080 -r 60 &
 #Start ES-DE
 ~/Applications/ES-DE*.AppImage &
 
+git clone --depth=1 https://github.com/johnodon/Ubuntu-Server-ES-DE.git
 copy rc.xml to ~/.config/openbox
 
 mkdir ~/Applications
