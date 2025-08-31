@@ -73,3 +73,23 @@ sudo usermod -a -G input arcade
 sudo usermod -a -G audio arcade
 sudo usermod -a -G video arcade
 
+
+#! /bin/bash
+ROMPATH="$3"
+ROM_BN_EXT="${ROMPATH##*/}"
+ROM_BN="${ROM_BN_EXT%.*}"
+CONTROLSIMAGE="/home/pi/RetroPie/roms/$1/images/$ROM_BN-controls.png"
+feh --geometry +3840+0 "$CONTROLSIMAGE" &>/dev/null &
+
+
+#! /bin/bash
+killall feh &
+
+
+#! /bin/bash
+#set primary display and resolution.
+xrandr --display :0 --output HDMI-1 --mode 1920x1080 --primary &
+#call cvlc to play a startup animation.  Wait for it to end before continuing.
+cvlc --random --play-and-stop --play-and-exit --fullscreen --video-on-top --no-video-title-show --quiet --gl=any --preferred-resolution=1080 ~/RetroPie/splashscreens &> /dev/null
+#start ES in a terminal (openbox).
+~/Applications/ES-DE*.AppImage &
