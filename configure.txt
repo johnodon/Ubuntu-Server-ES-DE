@@ -2,7 +2,7 @@ sudo sed -i -e '$a\arcade ALL=(ALL) NOPASSWD:ALL' /etc/sudoers
 sudo add-apt-repository universe -y
 sudo add-apt-repository multiverse -y
 sudo apt update -y && sudo apt dist-upgrade -y
-sudo apt install xorg openbox obconf lxterminal inxi yad screen lxappearance xterm nemo nano lxpolkit firefox rofi lightdm libfuse2 samba git dialog pulseaudio pavucontrol unzip xmlstarlet mpv dos2unix mc p7zip build-essential libsdl2-dev libsdl2-gfx-dev libsdl2-ttf-dev libvorbis-dev net-tools libsdl2-image-dev autotools-dev scrot jstest-gtk --no-install-recommends -y
+sudo apt install xorg openbox obconf lxterminal inxi yad screen lxappearance xterm nemo nano feh lxpolkit firefox rofi lightdm libfuse2 samba git dialog pulseaudio pavucontrol unzip xmlstarlet mpv dos2unix mc p7zip build-essential libsdl2-dev libsdl2-gfx-dev libsdl2-ttf-dev libvorbis-dev net-tools libsdl2-image-dev autotools-dev scrot jstest-gtk --no-install-recommends -y
 
 sudo nano /etc/samba/smb.conf
 [Home]
@@ -15,11 +15,9 @@ force user = arcade
 inherit permissions = yes
 
 sudo service smbd restart
-
 git clone --depth=1 https://github.com/johnodon/Ubuntu-Server-ES-DE.git
 mv ~/Ubuntu-Server-ES-DE/.config ~
 rm -rf ~/Ubuntu-Server-ES-DE
-
 mkdir ~/Applications
 mkdir ~/Downloads
 cd ~/Downloads
@@ -35,7 +33,7 @@ chmod +x ~/Applications/*
 chmod 777 ~/Applications/*
 
 sudo nano /etc/default/grub
-GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=2 fsck.mode=skip vt.global_cursor_default=0"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global_cursor_default=0"
 sudo update-grub
 sudo usermod -a -G input arcade
 sudo usermod -a -G audio arcade
