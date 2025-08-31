@@ -93,3 +93,18 @@ xrandr --display :0 --output HDMI-1 --mode 1920x1080 --primary &
 cvlc --random --play-and-stop --play-and-exit --fullscreen --video-on-top --no-video-title-show --quiet --gl=any --preferred-resolution=1080 ~/RetroPie/splashscreens &> /dev/null
 #start ES in a terminal (openbox).
 ~/Applications/ES-DE*.AppImage &
+
+
+
+# Suppress screensaver start attempts and autoblanking
+xset -dpms &
+xset s off &
+
+# Set resolution and refresh rate
+xrandr --display :0 --output DP-0 --mode 1920x1080 --primary &
+
+# Start ES-DE
+~/Applications/ES-DE*.AppImage &
+
+# Set wallpaper on DP-4
+feh --geometry +0+0 /home/arcade/ES-DE/media/arcade.jpg
