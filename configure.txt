@@ -2,7 +2,7 @@ sudo sed -i -e '$a\arcade ALL=(ALL) NOPASSWD:ALL' /etc/sudoers
 sudo add-apt-repository universe -y
 sudo add-apt-repository multiverse -y
 sudo apt update -y && sudo apt dist-upgrade -y
-sudo apt install xorg openbox obconf lxterminal inxi yad screen lxappearance xterm nemo nano feh lxpolkit firefox rofi lightdm libfuse2 samba git dialog pulseaudio pavucontrol unzip xmlstarlet mpv dos2unix mc p7zip build-essential libsdl2-dev libsdl2-gfx-dev libsdl2-ttf-dev libvorbis-dev net-tools libsdl2-image-dev autotools-dev scrot jstest-gtk --no-install-recommends -y
+sudo apt install xorg openbox obconf lxterminal inxi yad screen lxappearance xterm nemo nano feh lxpolkit firefox rofi lightdm libfuse2 samba git dialog pulseaudio pavucontrol unzip xmlstarlet mpv dos2unix mc xdotool p7zip build-essential libsdl2-dev libsdl2-gfx-dev libsdl2-ttf-dev libvorbis-dev net-tools libsdl2-image-dev autotools-dev scrot jstest-gtk --no-install-recommends -y
 
 sudo nano /etc/samba/smb.conf
 [Home]
@@ -108,3 +108,23 @@ xrandr --display :0 --output DP-0 --mode 1920x1080 --primary &
 
 # Set wallpaper on DP-4
 feh --geometry +0+0 /home/arcade/ES-DE/media/arcade.jpg
+
+
+
+show controls script (need to run dos2unix)
+#!/bin/bash
+killall -9 feh
+ROMPATH="${1}"
+ROM_BN_EXT="${ROMPATH##*/}"
+ROM_BN="${ROM_BN_EXT%.*}"
+feh --geometry +0+0 "/home/arcade/ES-DE/media/${3}/controls/$ROM_BN.png" &
+
+
+
+show wallpaper (need to run dos2unix)
+#!/bin/bash
+killall -9 feh
+feh --geometry +0+0 /home/arcade/ES-DE/media/wallpaper.jpg &
+sleep 0.3
+xdotool search --class es-de windowactivate
+
