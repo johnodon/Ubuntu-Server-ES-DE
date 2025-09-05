@@ -34,6 +34,7 @@ chmod 777 ~/Applications/*
 
 sudo nano /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global_cursor_default=0"
+
 sudo update-grub
 sudo usermod -a -G input arcade
 sudo usermod -a -G audio arcade
@@ -46,6 +47,12 @@ sudo systemctl disable getty@tty1.service --now
 sudo apt-get purge cloud-init -y
 sudo rm -rf /etc/cloud/ /var/lib/cloud/
 
+sudo nano /etc/lightdm/lightdm.conf
+[SeatDefaults]
+autologin-user=arcade
+autologin-user-timeout=0
+user-session=openbox
+
 git clone https://github.com/johnodon/Transparent_Cursor_Theme.git
 sudo cp -R /home/pi/Transparent_Cursor_Theme/Transparent /usr/share/icons
 sudo nano /usr/share/icons/default/index.theme
@@ -53,11 +60,7 @@ sudo nano /usr/share/icons/default/index.theme
 Inherits=Transparent
 
 
-sudo nano /etc/lightdm/lightdm.conf
-[SeatDefaults]
-autologin-user=arcade
-autologin-user-timeout=0
-user-session=openbox
+
 
 sudo nano /etc/modprobe.d/blacklist-cros_ec_lpcs.conf
 blacklist cros_ec_lpcs
@@ -107,7 +110,7 @@ xrandr --display :0 --output DP-0 --mode 1920x1080 --primary &
 ~/Applications/ES-DE*.AppImage &
 
 # Set wallpaper on DP-4
-feh --geometry +0+0 /home/arcade/ES-DE/media/arcade.jpg
+feh --geometry +0+0 /home/arcade/ES-DE/media/wallpaper.jpg
 
 
 
