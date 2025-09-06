@@ -61,10 +61,7 @@ chmod +x ~/Applications/*
 chmod 777 ~/Applications/*
 
 # Configure GRUB
-sudo tee /etc/default/grub > /dev/null <<'EOF'
-GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global_cursor_default=0"
-EOF
-
+sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global_cursor_default=0"/' /etc/default/grub
 sudo update-grub
 
 # Add arcade user to groups
