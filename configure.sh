@@ -87,17 +87,43 @@ cd ~/Downloads
 wget https://buildbot.libretro.com/stable/1.21.0/linux/x86_64/RetroArch.7z
 p7zip -d RetroArch.7z
 
+# Download Hypseus-Singe
+# Target directory
+HS_APP_DIR="$HOME/Applications/hypseus-singe"
+mkdir -p "$HS_APP_DIR"
+
+# Fetch latest release info from GitHub API
+LATEST_URL=$(curl -s https://api.github.com/repos/DirtBagXon/hypseus-singe/releases/latest \
+  | grep "browser_download_url" \
+  | grep "AppImage.tar.gz" \
+  | cut -d '"' -f 4)
+
+# Exit if no URL found
+if [[ -z "$LATEST_URL" ]]; then
+  echo "❌ Could not find Hypseus-Singe AppImage tar.gz download URL."
+  exit 1
+fi
+
+echo "⬇️ Downloading: $LATEST_URL"
+wget -q --show-progress "$LATEST_URL" -O /tmp/hypseus-singe.tar.gz
+
+echo "📦 Extracting..."
+gzip -dc /tmp/hypseus-singe.tar.gz | tar -xvzf -
+
 # Move applications
 mv ES-DE_x64.AppImage ~/Applications/
 mv RetroArch-Linux-x86_64/RetroArch-Linux-x86_64.AppImage ~/Applications/
 mv RetroArch-Linux-x86_64/RetroArch-Linux-x86_64.AppImage.home/.config/retroarch ~/.config/ || true
+mv hypseus-singe/* "$HS_APP_DIR"
 
 # Cleanup downloads
+rm /tmp/hypseus*.gz
 cd ~
 rm -rf ~/Downloads/*
 
 # Permissions
 chmod 777 ~/Applications/*
+chmod +x "$HS_APP_DIR/hypseus.bin"
 
 # Configure GRUB
 sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global_cursor_default=0"/' /etc/default/grub
