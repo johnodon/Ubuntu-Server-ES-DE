@@ -16,7 +16,7 @@ sudo apt install -y \
   xorg openbox obconf lxterminal inxi yad screen lxappearance xterm nemo nano feh lxpolkit firefox rofi \
   lightdm libfuse2 samba git dialog pulseaudio pavucontrol alsa-utils unzip xmlstarlet mpv dos2unix mc xdotool \
   p7zip build-essential libsdl2-dev libsdl2-gfx-dev libsdl2-ttf-dev libvorbis-dev net-tools libsdl2-image-dev \
-  autotools-dev scrot jstest-gtk --no-install-recommends
+  autotools-dev scrot jstest-gtk plymouth plymouth-themes --no-install-recommends
 
 # Configure Samba
 sudo tee -a /etc/samba/smb.conf > /dev/null <<'EOF'
@@ -126,7 +126,7 @@ chmod 777 ~/Applications/*
 chmod +x "$HS_APP_DIR/hypseus.bin"
 
 # Configure GRUB
-sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty2 fsck.mode=skip vt.global_cursor_default=0"/' /etc/default/grub
+sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global_cursor_default=0 video=1920x1080"/' /etc/default/grub
 sudo sed -i 's/^#GRUB_GFXMODE=.*/GRUB_GFXMODE=1920x1080/' /etc/default/grub
 sudo update-grub
 
