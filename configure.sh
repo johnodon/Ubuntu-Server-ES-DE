@@ -126,7 +126,8 @@ chmod 777 ~/Applications/*
 chmod +x "$HS_APP_DIR/hypseus.bin"
 
 # Configure GRUB
-sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global_cursor_default=0"/' /etc/default/grub
+sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 console=tty2 fsck.mode=skip vt.global_cursor_default=0"/' /etc/default/grub
+sudo sed -i 's/^#GRUB_GFXMODE=.*/GRUB_GFXMODE=1920x1080/' /etc/default/grub
 sudo update-grub
 
 # Add arcade user to groups
@@ -145,6 +146,9 @@ sudo systemctl disable getty@tty1.service --now
 # Remove cloud-init
 sudo apt-get purge cloud-init -y
 sudo rm -rf /etc/cloud/ /var/lib/cloud/
+
+# Remove kdump-tools
+sudo apt remove kdump-tools -y
 
 # Configure LightDM
 sudo tee /etc/lightdm/lightdm.conf > /dev/null <<'EOF'
