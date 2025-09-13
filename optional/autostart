@@ -1,0 +1,10 @@
+# Suppress screensaver start attempts and autoblanking
+xset -dpms &
+xset s off &
+# Set resolution and refresh rate
+xrandr --display :0 --output DP-2 --primary --mode 1920x1080 &
+xrandr --display :0 --output DP-3 --mode 1920x1080 &
+#Start ES-DE
+~/Applications/ES-DE*.AppImage &
+# Set wallpaper on monitor 2
+feh --geometry +3840+0 /home/arcade/ES-DE/media/wallpaper.jpg &
