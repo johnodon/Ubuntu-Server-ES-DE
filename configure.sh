@@ -150,6 +150,10 @@ sudo rm -rf /etc/cloud/ /var/lib/cloud/
 # Remove kdump-tools
 sudo apt remove kdump-tools -y
 
+# Disable apparmor
+sudo systemctl stop apparmor
+sudo systemctl disable apparmor
+
 # Configure LightDM
 sudo tee /etc/lightdm/lightdm.conf > /dev/null <<'EOF'
 [SeatDefaults]
