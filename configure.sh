@@ -126,7 +126,7 @@ chmod 777 ~/Applications/*
 chmod +x "$HS_APP_DIR/hypseus.bin"
 
 # Configure GRUB
-sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global_cursor_default=0 video=1920x1080"/' /etc/default/grub
+sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet loglevel=0 fsck.mode=skip vt.global_cursor_default=0 video=1920x1080 ipv6.disable=1"/' /etc/default/grub
 sudo sed -i 's/^#GRUB_GFXMODE=.*/GRUB_GFXMODE=1920x1080/' /etc/default/grub
 sudo update-grub
 
